@@ -1,3 +1,9 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@400;500;600;700&display=swap');
+
+* {
+  font-family: 'Montserrat', sans-serif;
+}
+
 body {
   padding: 0;
   margin: 0;
@@ -18,7 +24,6 @@ h1 {
   width: 600px;
   display: flex;
   flex-direction: column;
-  align-items: center;
 }
 
 .list-pages {
@@ -31,7 +36,112 @@ h1 {
 }
 
 .list-pages__item {
-  font-weight: 700;
+  font-weight: 600;
   cursor: pointer;
+  font-size: 14px;
+  border-bottom: 4px solid transparent;
+  padding: 15px 0;
+}
+
+.page-active {
+  border-bottom: 4px solid #2F80ED;
+}
+
+.list-pages__item:hover {
+  border-bottom: 4px solid #2F80ED;
+}
+
+.form {
+  display: flex;
+  gap: 25px;
+}
+
+.form__input {
+  width: 100%;
+  width: 100%;
+  padding: 20px 12px;
+  border-radius: 12px;
+  border: 1px solid #BDBDBD;
+}
+
+.form__btn {
+  padding: 20px 40px;
+  background: #2F80ED;
+  box-shadow: 0px 2px 6px 0px #7FB1F366;
+  border: none;
+  color: #fff;
+  border-radius: 12px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.task__container {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  align-self: flex-start;
+  gap: 25px
+}
+
+.task__item {
+  display: flex;
+  gap: 8px;
+  align-items: center;
+  list-style: none;
   font-size: 18px;
+  font-weight: 500;
+}
+
+.completed-task {
+  text-decoration-line: line-through;
+}
+
+.task__checkbox {
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+}
+
+/* completed */
+
+.task__completed{
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.task__completed__item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 18px;
+  font-weight: 500;
+  text-decoration: line-through;
+}
+
+.trash-icon {
+  color: #BDBDBD;
+  cursor: pointer;
+}
+
+.trash-icon:hover {
+  color: #a8a8a8;
+}
+
+.trash-icon-btn {
+  color: #fff;
+}
+
+.delete__btn {
+  background: #EB5757;
+  color: #fff;
+  border: none;
+  border-radius: 4px;
+  padding: 12px 26px;
+  font-weight: 600;
+  font-size: 12px;
+  width: fit-content;
+  align-self: self-end;
+  margin-top: 20px;
+  cursor: pointer;
 }

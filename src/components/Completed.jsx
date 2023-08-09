@@ -1,27 +1,28 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome"
 import { faTrash } from "@fortawesome/free-solid-svg-icons"
+import '../App.css'
 
 export default function Completed ({taskArray, changeCompleted, deleteTask, deleteAll}) {
 
     const tasksResult = taskArray.filter((item) => item.isCompleted == true)
 
     return(
-        <section>
-            <ul>
+        <section className="container">
+            <ul className="task__container">
                 {tasksResult.length > 0 && tasksResult.map((task, index) => {
                     return(
-                        <li key={task.id}>
-                            <div>
-                                <input type="checkbox" checked={task.isCompleted} onChange={() => changeCompleted(task)} />
-                                <p> {task.value} </p>
+                        <li className="task__completed" key={task.id}>
+                            <div className="task__completed__item">
+                                <input className="task__checkbox" type="checkbox" checked={task.isCompleted} onChange={() => changeCompleted(task)} />
+                                 {task.value} 
                             </div>
-                            <FontAwesomeIcon onClick={() => deleteTask(index)} icon={faTrash} />
+                            <FontAwesomeIcon className="trash-icon" onClick={() => deleteTask(index)} icon={faTrash} />
                         </li>
                     )
                 })}
             </ul>
             
-            <button onClick={deleteAll}><FontAwesomeIcon icon={faTrash} /> delete all</button>
+            <button className="delete__btn" onClick={deleteAll}><FontAwesomeIcon className="trash-icon-btn" icon={faTrash} /> delete all</button>
         </section>
     )
 }

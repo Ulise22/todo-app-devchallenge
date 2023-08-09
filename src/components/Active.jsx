@@ -1,4 +1,5 @@
 import { useState } from "react"
+import '../App.css'
 
 export default function Active ({createTask, taskArray, changeCompleted}) {
     const [taskValue, setTaskValue] = useState('');
@@ -17,16 +18,16 @@ export default function Active ({createTask, taskArray, changeCompleted}) {
 
     return(
         <section className="container">
-            <form onSubmit={handleSubmit}>
-                <input onChange={handleChange} type="text" placeholder="write a task" value={taskValue} />
-                <button>Add</button>
+            <form className="form" onSubmit={handleSubmit}>
+                <input className="form__input" onChange={handleChange} type="text" placeholder="write a task" value={taskValue} />
+                <button className="form__btn">Add</button>
             </form>
 
-            <ul>
+            <ul className="task__container">
                 { tasksResult.length > 0 && tasksResult.map((task) => {
                     return(
-                        <li key={task.id}>
-                            <input type="checkbox" checked={task.isCompleted} onChange={() => changeCompleted(task)} />
+                        <li className={task.isCompleted ? "task__item completed-task" : "task__item"} key={task.id}>
+                            <input className="task__checkbox" type="checkbox" checked={task.isCompleted} onChange={() => changeCompleted(task)} />
                             <p> {task.value} </p>
                         </li>
                     )
