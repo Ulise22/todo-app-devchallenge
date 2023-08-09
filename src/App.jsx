@@ -9,7 +9,7 @@ export default function App () {
   const [tasks, setTasks] = useState([]);
 
   const createTask = (value) => {
-    let auxTask = {value: value, isCompleted: false, id: Math.random()}
+    let auxTask = {value: value, isCompleted: false, id: crypto.randomUUID()}
     setTasks(current => [...current, auxTask])
   }
 
@@ -20,9 +20,9 @@ export default function App () {
     setTasks(updatedTasks)
   }
 
-  const deleteTask = (position) => {
-    let updatedTask = [...tasks]
-    updatedTask.splice(position, position+1)
+  const deleteTask = (task) => {
+    let updatedTask = tasks.filter(x => x !== task)
+    
     setTasks(updatedTask)
   }
 
